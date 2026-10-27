@@ -4,28 +4,117 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cardvista: Jigsaw Solitaire</title>
-<meta name="description" content="Cardvista: Jigsaw Solitaire. Slide picture cards, snap them together and reveal beautiful photos. A relaxing puzzle with no timer and no losing.">
+<meta name="description" content="Cardvista: Jigsaw Solitaire. Slide picture cards, snap them together and reveal beautiful photos. A relaxing puzzle with no timer, a new picture every day and albums to collect.">
+<meta property="og:title" content="Cardvista: Jigsaw Solitaire">
+<meta property="og:description" content="Slide picture cards, snap them together and reveal a beautiful photo. No timer, no losing.">
+<meta property="og:image" content="https://cardvista.vipapp.info/icon.png">
 <link rel="icon" type="image/png" href="icon.png">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Nunito", system-ui, sans-serif;
+    background: linear-gradient(180deg, #2B3FD8 0%, #141B6E 45%, #070A2E 100%);
+    background-attachment: fixed;
+    color: #fff; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 56px 0 32px;
+  }
+  .hero { padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
+  .icon {
+    width: 128px; height: 128px; border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.45), 0 0 48px rgba(255,61,132,.35);
+  }
+  h1 {
+    font-family: "Fredoka", sans-serif; font-weight: 600;
+    font-size: clamp(42px, 9vw, 68px); letter-spacing: .02em; margin-top: 26px;
+  }
+  .tagline {
+    color: #FFD24D; font-weight: 700; letter-spacing: .32em;
+    font-size: clamp(12px, 2.5vw, 15px); margin-top: 6px;
+  }
+  .pitch {
+    max-width: 580px; margin-top: 22px; font-size: 18px;
+    line-height: 1.6; color: #D5DAF5;
+  }
+  .soon {
+    margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 14px; font-weight: 700; font-size: 15px;
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: #fff;
+  }
+  .pill small { display: block; font-weight: 400; font-size: 11px; color: #C2C9F0; letter-spacing: .04em; }
+  .pill b { display: block; font-size: 16px; }
+  .shots {
+    width: 100%; margin-top: 44px; padding: 8px 20px 18px;
+    display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .shots img {
+    flex: 0 0 auto; height: min(62vh, 520px); width: auto; border-radius: 22px;
+    box-shadow: 0 14px 36px rgba(0,0,0,.45); scroll-snap-align: center;
+  }
+  /* căn giữa khi vừa, cuộn từ đầu khi tràn (justify-content:center sẽ cắt mất đầu dải) */
+  .shots img:first-child { margin-left: auto; }
+  .shots img:last-child { margin-right: auto; }
+  ul.features {
+    list-style: none; margin-top: 30px; display: grid; gap: 12px; padding: 0 20px;
+    font-size: 16.5px; color: #E9ECFB; text-align: left;
+  }
+  ul.features li::before { content: "◆ "; color: #FF3D84; }
+  .links { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; padding: 0 20px; }
+  .links a {
+    color: #fff; text-decoration: none; font-weight: 700; font-size: 15px;
+    padding: 10px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,.3);
+  }
+  .links a:hover { background: rgba(255,255,255,.12); }
+  footer { margin-top: auto; padding: 48px 20px 0; font-size: 14px; color: #9AA3D6; }
+  footer a { color: #B9C6FF; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
 </head>
 <body>
-<div class="hero">
-  <img src="icon.png" alt="Cardvista icon" width="128" height="128">
-  <h1>Cardvista</h1>
-  <p class="tag">Jigsaw Solitaire</p>
-  <p class="pitch">Slide picture cards, snap them together and reveal a beautiful photo. Collect every picture as a card. No timer, no losing, just a calm puzzle.</p>
-  <span class="soon">Coming soon to iPhone, iPad and Android</span>
-</div>
-<div class="feat">
-  <div><b>Snap and combo</b>Drag a card, swap places, and neighbours click together into one growing picture.</div>
-  <div><b>Collect pictures</b>Every solved photo becomes a collectible card with its story, grouped in albums by theme.</div>
-  <div><b>Daily challenge</b>A new picture every day on a bigger 8x8 board, with monthly rewards.</div>
-  <div><b>Calm by design</b>No timer and no move limit. Optional hints, and rewarded videos are always your choice.</div>
-</div>
-<div class="links">
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Use</a>
-</div>
-<footer class="wrap" style="text-align:center;padding-top:24px">Contact: thaonp.dsvn@gmail.com</footer>
+  <div class="hero">
+    <img class="icon" src="icon.png" alt="Cardvista icon" width="128" height="128">
+    <h1>Cardvista</h1>
+    <div class="tagline">SLIDE · SNAP · COLLECT</div>
+    <p class="pitch">
+      Slide picture cards, snap them together and reveal a beautiful photo.
+      Every solved picture becomes a collectible card. No timer, no losing,
+      just a calm puzzle for any time of day.
+    </p>
+    <div class="soon">
+      <span class="pill"><span><small>COMING SOON</small><b>Google Play</b></span></span>
+      <span class="pill"><span><small>COMING SOON</small><b>App Store</b></span></span>
+    </div>
+  </div>
+
+  <div class="shots" aria-label="Screenshots">
+    <img src="img/01_game_h9.jpg" alt="Snap cards into a picture" loading="lazy">
+    <img src="img/02_game0.jpg" alt="Drag cards and swap places" loading="lazy">
+    <img src="img/03_game_h16.jpg" alt="Every puzzle is a collectible card" loading="lazy">
+    <img src="img/04_album.jpg" alt="Collect albums of pictures" loading="lazy">
+    <img src="img/05_daily.jpg" alt="A new picture every day" loading="lazy">
+    <img src="img/06_daily_h6.jpg" alt="Daily challenge with big rewards" loading="lazy">
+  </div>
+
+  <ul class="features">
+    <li>Thousands of photos in 20+ themes: art, birds, wild animals, space and more</li>
+    <li>A new Daily Challenge every day on a bigger 8×8 board</li>
+    <li>Seasonal albums and events, with rewards along the way</li>
+    <li>Optional Peek and Hint boosters, and no timer, ever</li>
+  </ul>
+
+  <div class="links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:thaonp.dsvn@gmail.com">Contact</a>
+  </div>
+
+  <footer>© 2026 Cardvista · Pictures come from public sources such as Wikimedia Commons, Pixabay and NASA, used under their licenses.</footer>
 </body>
 </html>
